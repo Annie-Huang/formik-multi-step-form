@@ -10,3 +10,4 @@ https://mui.com/material-ui/getting-started/installation/
 PS C:\react> npx create-react-app formik-multi-step-form --template typescript --use-npm
 PS C:\react\formik-multi-step-form> npm install @mui/material @emotion/react @emotion/styled
 PS C:\react\formik-multi-step-form> npm install @mui/material @mui/styled-engine-sc styled-components
+PS C:\react\formik-multi-step-form> npm install formik --save
