@@ -6,6 +6,8 @@ https://github.com/Annie-Huang/formik-multi-step-form
 https://formik.org/docs/overview
 https://mui.com/material-ui/getting-started/installation/
 https://www.npmjs.com/package/yup
+https://www.npmjs.com/package/formik-mui
+https://stackworx.github.io/formik-mui/
 ------------------------------------------------------------
 
 PS C:\react> npx create-react-app formik-multi-step-form --template typescript --use-npm
@@ -13,3 +15,4 @@ PS C:\react\formik-multi-step-form> npm install @mui/material @emotion/react @em
 PS C:\react\formik-multi-step-form> npm install @mui/material @mui/styled-engine-sc styled-components
 PS C:\react\formik-multi-step-form> npm install formik --save
 PS C:\react\formik-multi-step-form> npm i yup
+PS C:\react\formik-multi-step-form> npm add formik-mui formik-mui-x-date-pickers
