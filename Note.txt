@@ -5,9 +5,11 @@ https://github.com/Annie-Huang/formik-multi-step-form
 
 https://formik.org/docs/overview
 https://mui.com/material-ui/getting-started/installation/
+https://www.npmjs.com/package/yup
 ------------------------------------------------------------
 
 PS C:\react> npx create-react-app formik-multi-step-form --template typescript --use-npm
 PS C:\react\formik-multi-step-form> npm install @mui/material @emotion/react @emotion/styled
 PS C:\react\formik-multi-step-form> npm install @mui/material @mui/styled-engine-sc styled-components
 PS C:\react\formik-multi-step-form> npm install formik --save
+PS C:\react\formik-multi-step-form> npm i yup
