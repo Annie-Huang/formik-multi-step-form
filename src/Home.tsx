@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { Field, Form, Formik, FormikHelpers, FormikValues } from 'formik';
-import { TextField } from 'formik-mui';
+import { CheckboxWithLabel, TextField } from 'formik-mui';
 
 type Values = {
   firstName: string;
@@ -38,6 +38,24 @@ export const Home = () => {
         >
           <Form>
             <Field name='firstName' component={TextField} label='First Name' />
+            <Field name='lastName' component={TextField} label='Last Name' />
+            <Field
+              name='millionaire'
+              type='checkbox'
+              component={CheckboxWithLabel}
+              Label={{ label: 'I am a millionaire' }}
+            />
+            <Field
+              name='money'
+              type='number'
+              component={TextField}
+              label='All the money I have'
+            />
+            <Field
+              name='description'
+              component={TextField}
+              label='Description'
+            />
           </Form>
         </Formik>
       </CardContent>

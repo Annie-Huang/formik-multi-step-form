@@ -11,7 +11,9 @@ https://mui.com/material-ui/getting-started/installation/
 https://www.npmjs.com/package/yup
 https://www.npmjs.com/package/formik-mui
 https://stackworx.github.io/formik-mui/
-------------------------------------------------------------
+https://stackworx.github.io/formik-mui/docs/api/mui/#checkboxwithlabel
+
+-------------------------------------------------------------------------------
 
 PS C:\react> npx create-react-app formik-multi-step-form --template typescript --use-npm
 PS C:\react\formik-multi-step-form> npm install @mui/material @emotion/react @emotion/styled
