@@ -1,6 +1,9 @@
 React Multi-Step Form Tutorial: Using Formik, Yup and material-ui (https://www.youtube.com/watch?v=l3NEC4McW3g)
 
 https://github.com/bmvantunes/youtube-2020-june-multi-step-form-formik/commits/master/
+(Open https://github.com/bmvantunes/youtube-2020-june-multi-step-form-formik/tree/5870d5fbcbb0422f25ebf4d419ab54f296f25bdc
+ and use it as your start point.
+)
 https://github.com/Annie-Huang/formik-multi-step-form
 
 https://formik.org/docs/overview
