@@ -3,7 +3,15 @@ import { Card, CardContent, Typography } from '@mui/material';
 import { Field, Form, Formik, FormikHelpers, FormikValues } from 'formik';
 import { TextField } from 'formik-mui';
 
-const INITIAL_FORM_STATE = {
+type Values = {
+  firstName: string;
+  lastName: string;
+  millionaire: boolean;
+  money: number;
+  description: string;
+};
+
+const INITIAL_FORM_STATE: Values = {
   firstName: '',
   lastName: '',
   millionaire: false,
@@ -19,8 +27,11 @@ export const Home = () => {
         <Formik
           initialValues={{ ...INITIAL_FORM_STATE }}
           onSubmit={function (
-            values: FormikValues,
-            formikHelpers: FormikHelpers<FormikValues>,
+            // values: FormikValues,
+            // formikHelpers: FormikHelpers<FormikValues>,
+
+            values: Values,
+            formikHelpers: FormikHelpers<Values>,
           ): void | Promise<any> {
             throw new Error('Function not implemented.');
           }}
