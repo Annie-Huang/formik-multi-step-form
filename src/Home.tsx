@@ -36,7 +36,8 @@ export const Home = () => {
             throw new Error('Function not implemented.');
           }}
         >
-          <Form>
+          {/* Turn off auto complete for the form. */}
+          <Form autoComplete='off'>
             <Field
               name='firstName'
               component={TextField}
