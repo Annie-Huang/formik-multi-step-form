@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Form, Formik, FormikConfig } from 'formik';
 import { Values } from './types';
+import { Button } from '@mui/material';
 
 // props is the same as props from <Formik> component
 // props: FormikConfig<Values> & ExtraProps
@@ -16,7 +17,19 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
 
   return (
     <Formik {...props}>
-      <Form autoComplete='off'>{currentChild}</Form>
+      <Form autoComplete='off'>
+        {currentChild}
+
+        {step > 0 && (
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={() => setStep((s) => s - 1)}
+          >
+            Back
+          </Button>
+        )}
+      </Form>
     </Formik>
   );
 };
