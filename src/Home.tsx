@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import { Field, Form, Formik, FormikHelpers, FormikValues } from 'formik';
+import {
+  Field,
+  Form,
+  Formik,
+  FormikConfig,
+  FormikHelpers,
+  FormikValues,
+} from 'formik';
 import { CheckboxWithLabel, TextField } from 'formik-mui';
 import * as Yup from 'yup';
 import { mixed, number } from 'yup';
@@ -103,5 +110,23 @@ export const Home = () => {
         </Formik>
       </CardContent>
     </Card>
+  );
+};
+
+interface FormikStepperProps {
+  children: ReactNode;
+  props: FormikConfig<Values>;
+}
+// props is the same as props from <Formik> component
+// props: FormikConfig<Values> & ExtraProps
+export const FormikStepper: FC<FormikStepperProps> = ({
+  children,
+  ...props
+}) => {
+  return (
+    <Formik {...props}>
+      {/* Turn off auto complete for the form. */}
+      <Form autoComplete='off'>{children}</Form>
+    </Formik>
   );
 };
