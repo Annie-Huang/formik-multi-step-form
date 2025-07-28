@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { Field, Form, Formik, FormikHelpers, FormikValues } from 'formik';
 import { CheckboxWithLabel, TextField } from 'formik-mui';
+import * as Yup from 'yup';
+import { mixed, number } from 'yup';
 
 type Values = {
   firstName: string;
@@ -18,6 +20,27 @@ const INITIAL_FORM_STATE: Values = {
   money: 0,
   description: '',
 };
+const FORM_VALIDATION = Yup.object().shape({
+  // money: mixed().when('millionaire', {
+  //   is: true,
+  //   then: number().required().min(
+  //     1_000_000, // this is the same as 1000000
+  //     'Because you said you are a millionaire you need to have 1 million',
+  //   ),
+  //   otherwise: number().required(),
+  // }),
+
+  // https://stackoverflow.com/questions/54919228/conditional-validation-with-yup-and-formik
+  money: mixed().when('millionaire', ([millionaire]) => {
+    if (millionaire) {
+      return number().required().min(
+        1_000_000, // this is the same as 1000000
+        'Because you said you are a millionaire you need to have 1 million',
+      );
+    }
+    return number().required();
+  }),
+});
 
 export const Home = () => {
   return (
@@ -26,6 +49,7 @@ export const Home = () => {
         {/*<Typography variant='h1'>Hello Youtube!!!</Typography>*/}
         <Formik
           initialValues={{ ...INITIAL_FORM_STATE }}
+          validationSchema={FORM_VALIDATION}
           onSubmit={function (
             // values: FormikValues,
             // formikHelpers: FormikHelpers<FormikValues>,
