@@ -20,6 +20,7 @@ type Values = {
   description: string;
 };
 
+// const INITIAL_FORM_STATE: FormikValues = {
 const INITIAL_FORM_STATE: Values = {
   firstName: '',
   lastName: '',
@@ -50,11 +51,73 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 
 export const Home = () => {
+  /*  return (
+    <Card>
+      <CardContent>
+        {/!*<Typography variant='h1'>Hello Youtube!!!</Typography>*!/}
+        <Formik
+          initialValues={{ ...INITIAL_FORM_STATE }}
+          validationSchema={FORM_VALIDATION}
+          onSubmit={function (
+            // values: FormikValues,
+            // formikHelpers: FormikHelpers<FormikValues>,
+
+            values: Values,
+            formikHelpers: FormikHelpers<Values>,
+          ): void | Promise<any> {
+            throw new Error('Function not implemented.');
+          }}
+        >
+          {/!* Turn off auto complete for the form. *!/}
+          <Form autoComplete='off'>
+            <div>
+              <Field
+                name='firstName'
+                component={TextField}
+                label='First Name'
+                variant='standard'
+              />
+              <Field
+                name='lastName'
+                component={TextField}
+                label='Last Name'
+                variant='standard'
+              />
+              <Field
+                name='millionaire'
+                type='checkbox'
+                component={CheckboxWithLabel}
+                Label={{ label: 'I am a millionaire' }}
+              />
+            </div>
+            <div>
+              <Field
+                name='money'
+                type='number'
+                component={TextField}
+                label='All the money I have'
+                variant='standard'
+              />
+            </div>
+            <div>
+              <Field
+                name='description'
+                component={TextField}
+                label='Description'
+                variant='standard'
+              />
+            </div>
+          </Form>
+        </Formik>
+      </CardContent>
+    </Card>
+  );*/
+
   return (
     <Card>
       <CardContent>
         {/*<Typography variant='h1'>Hello Youtube!!!</Typography>*/}
-        <Formik
+        <FormikStepper
           initialValues={{ ...INITIAL_FORM_STATE }}
           validationSchema={FORM_VALIDATION}
           onSubmit={function (
@@ -107,26 +170,24 @@ export const Home = () => {
               />
             </div>
           </Form>
-        </Formik>
+        </FormikStepper>
       </CardContent>
     </Card>
   );
 };
 
-interface FormikStepperProps {
-  children: ReactNode;
-  props: FormikConfig<Values>;
-}
 // props is the same as props from <Formik> component
 // props: FormikConfig<Values> & ExtraProps
-export const FormikStepper: FC<FormikStepperProps> = ({
+export const FormikStepper: FC<FormikConfig<Values>> = ({
   children,
   ...props
 }) => {
   return (
     <Formik {...props}>
-      {/* Turn off auto complete for the form. */}
-      <Form autoComplete='off'>{children}</Form>
+      <Form autoComplete='off'>
+        {/* Have to wrap children with react fragment: https://github.com/jaredpalmer/formik/issues/3683 */}
+        <>{children}</>
+      </Form>
     </Formik>
   );
 };
