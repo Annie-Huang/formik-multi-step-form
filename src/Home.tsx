@@ -1,24 +1,11 @@
-import React, { FC, ReactNode } from 'react';
+import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import {
-  Field,
-  Form,
-  Formik,
-  FormikConfig,
-  FormikHelpers,
-  FormikValues,
-} from 'formik';
+import { Field, FormikHelpers } from 'formik';
 import { CheckboxWithLabel, TextField } from 'formik-mui';
 import * as Yup from 'yup';
 import { mixed, number } from 'yup';
-
-type Values = {
-  firstName: string;
-  lastName: string;
-  millionaire: boolean;
-  money: number;
-  description: string;
-};
+import { FormikStepper } from './FormikStepper';
+import { Values } from './types';
 
 // const INITIAL_FORM_STATE: FormikValues = {
 const INITIAL_FORM_STATE: Values = {
@@ -170,21 +157,5 @@ export const Home = () => {
         </FormikStepper>
       </CardContent>
     </Card>
-  );
-};
-
-// props is the same as props from <Formik> component
-// props: FormikConfig<Values> & ExtraProps
-export const FormikStepper: FC<FormikConfig<Values>> = ({
-  children,
-  ...props
-}) => {
-  return (
-    <Formik {...props}>
-      <Form autoComplete='off'>
-        {/* Have to wrap children with react fragment: https://github.com/jaredpalmer/formik/issues/3683 */}
-        <>{children}</>
-      </Form>
-    </Formik>
   );
 };
