@@ -130,46 +130,43 @@ export const Home = () => {
             throw new Error('Function not implemented.');
           }}
         >
-          {/* Turn off auto complete for the form. */}
-          <Form autoComplete='off'>
-            <div>
-              <Field
-                name='firstName'
-                component={TextField}
-                label='First Name'
-                variant='standard'
-              />
-              <Field
-                name='lastName'
-                component={TextField}
-                label='Last Name'
-                variant='standard'
-              />
-              <Field
-                name='millionaire'
-                type='checkbox'
-                component={CheckboxWithLabel}
-                Label={{ label: 'I am a millionaire' }}
-              />
-            </div>
-            <div>
-              <Field
-                name='money'
-                type='number'
-                component={TextField}
-                label='All the money I have'
-                variant='standard'
-              />
-            </div>
-            <div>
-              <Field
-                name='description'
-                component={TextField}
-                label='Description'
-                variant='standard'
-              />
-            </div>
-          </Form>
+          <div>
+            <Field
+              name='firstName'
+              component={TextField}
+              label='First Name'
+              variant='standard'
+            />
+            <Field
+              name='lastName'
+              component={TextField}
+              label='Last Name'
+              variant='standard'
+            />
+            <Field
+              name='millionaire'
+              type='checkbox'
+              component={CheckboxWithLabel}
+              Label={{ label: 'I am a millionaire' }}
+            />
+          </div>
+          <div>
+            <Field
+              name='money'
+              type='number'
+              component={TextField}
+              label='All the money I have'
+              variant='standard'
+            />
+          </div>
+          <div>
+            <Field
+              name='description'
+              component={TextField}
+              label='Description'
+              variant='standard'
+            />
+          </div>
         </FormikStepper>
       </CardContent>
     </Card>
