@@ -41,7 +41,9 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
             Back
           </Button>
         )}
-        <Button type='submit'>{isLastStep() ? 'Submit' : 'Next'}</Button>
+        <Button variant='contained' type='submit'>
+          {isLastStep() ? 'Submit' : 'Next'}
+        </Button>
       </Form>
     </Formik>
   );
