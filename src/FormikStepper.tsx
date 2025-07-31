@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Form, Formik, FormikConfig } from 'formik';
+import { Form, Formik, FormikConfig, FormikHelpers } from 'formik';
 import { Values } from './types';
 import { Button } from '@mui/material';
 
@@ -15,8 +15,16 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
 
+  const onSubmit = async (values: Values, helpers: FormikHelpers<Values>) => {
+    if (step === childrenArray.length - 1) {
+      await props.onSubmit(values, helpers);
+    } else {
+      setStep((s) => s + 1);
+    }
+  };
+
   return (
-    <Formik {...props}>
+    <Formik {...props} onSubmit={onSubmit}>
       <Form autoComplete='off'>
         {currentChild}
 
