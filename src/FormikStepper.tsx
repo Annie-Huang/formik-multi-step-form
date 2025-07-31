@@ -15,8 +15,12 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
 
+  const isLastStep = () => {
+    return step === childrenArray.length - 1;
+  };
+
   const onSubmit = async (values: Values, helpers: FormikHelpers<Values>) => {
-    if (step === childrenArray.length - 1) {
+    if (isLastStep()) {
       await props.onSubmit(values, helpers);
     } else {
       setStep((s) => s + 1);
@@ -37,7 +41,7 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
             Back
           </Button>
         )}
-        <Button type='submit'>Next</Button>
+        <Button type='submit'>{isLastStep() ? 'Submit' : 'Next'}</Button>
       </Form>
     </Formik>
   );
