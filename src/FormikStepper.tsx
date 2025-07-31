@@ -29,6 +29,7 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
             Back
           </Button>
         )}
+        <Button type='submit'>Next</Button>
       </Form>
     </Formik>
   );
