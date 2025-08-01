@@ -39,7 +39,12 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
   };
 
   return (
-    <Formik {...props} onSubmit={onSubmit}>
+    <Formik
+      {...props}
+      // only the 2nd child got the validationSchema value. After this is added, you cannot move to the 3rd step if you choose millionaire and didn't enter > 1m for money
+      validationSchema={currentChild.props.validationSchema}
+      onSubmit={onSubmit}
+    >
       <Form autoComplete='off'>
         {currentChild}
 
