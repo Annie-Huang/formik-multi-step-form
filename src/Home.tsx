@@ -45,7 +45,7 @@ export const Home = () => {
         {/*<Typography variant='h1'>Hello Youtube!!!</Typography>*/}
         <FormikStepper
           initialValues={{ ...INITIAL_FORM_STATE }}
-          validationSchema={FORM_VALIDATION}
+          // validationSchema={FORM_VALIDATION}
           onSubmit={function (
             // values: FormikValues,
             // formikHelpers: FormikHelpers<FormikValues>,
@@ -76,7 +76,7 @@ export const Home = () => {
               Label={{ label: 'I am a millionaire' }}
             />
           </FormikStep>
-          <FormikStep>
+          <FormikStep validationSchema={FORM_VALIDATION}>
             <Field
               name='money'
               type='number'
