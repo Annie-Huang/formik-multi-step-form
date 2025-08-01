@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { mixed, number } from 'yup';
 import { FormikStepper } from './FormikStepper';
 import { Values } from './types';
+import { FormikStep } from './FormikStep';
 
 // const INITIAL_FORM_STATE: FormikValues = {
 const INITIAL_FORM_STATE: Values = {
@@ -42,6 +43,65 @@ export const Home = () => {
     <Card>
       <CardContent>
         {/*<Typography variant='h1'>Hello Youtube!!!</Typography>*/}
+        <FormikStepper
+          initialValues={{ ...INITIAL_FORM_STATE }}
+          validationSchema={FORM_VALIDATION}
+          onSubmit={function (
+            // values: FormikValues,
+            // formikHelpers: FormikHelpers<FormikValues>,
+
+            values: Values,
+            formikHelpers: FormikHelpers<Values>,
+          ): void | Promise<any> {
+            throw new Error('Function not implemented.');
+          }}
+        >
+          <FormikStep>
+            <Field
+              name='firstName'
+              component={TextField}
+              label='First Name'
+              variant='standard'
+            />
+            <Field
+              name='lastName'
+              component={TextField}
+              label='Last Name'
+              variant='standard'
+            />
+            <Field
+              name='millionaire'
+              type='checkbox'
+              component={CheckboxWithLabel}
+              Label={{ label: 'I am a millionaire' }}
+            />
+          </FormikStep>
+          <FormikStep>
+            <Field
+              name='money'
+              type='number'
+              component={TextField}
+              label='All the money I have'
+              variant='standard'
+            />
+          </FormikStep>
+          <FormikStep>
+            <Field
+              name='description'
+              component={TextField}
+              label='Description'
+              variant='standard'
+            />
+          </FormikStep>
+        </FormikStepper>
+      </CardContent>
+    </Card>
+  );
+
+  /*  return (
+    <Card>
+      <CardContent>
+        {/!*<Typography variant='h1'>Hello Youtube!!!</Typography>*!/}
         <FormikStepper
           initialValues={{ ...INITIAL_FORM_STATE }}
           validationSchema={FORM_VALIDATION}
@@ -95,7 +155,7 @@ export const Home = () => {
         </FormikStepper>
       </CardContent>
     </Card>
-  );
+  );*/
 
   /*  return (
     <Card>
