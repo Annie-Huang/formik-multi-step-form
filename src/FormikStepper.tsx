@@ -3,6 +3,9 @@ import { Form, Formik, FormikConfig, FormikHelpers } from 'formik';
 import { Values } from './types';
 import { Button } from '@mui/material';
 
+// Note: very confusing the naming, this is called FormikStepper which is the highest wrapper.
+// Then the FormikStep, which the wrapper for each page of the form section.
+
 // props is the same as props from <Formik> component
 // props: FormikConfig<Values> & ExtraProps
 export const FormikStepper: FC<FormikConfig<Values>> = ({
