@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik';
 import { Values } from './types';
 import { Button } from '@mui/material';
+import { FormikStepProps } from './FormikStep';
 
 // Note: very confusing the naming, this is called FormikStepper which is the highest wrapper.
 // Then the FormikStep, which the wrapper for each page of the form section.
@@ -15,8 +16,15 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
   // https://github.com/jaredpalmer/formik/issues/3683, if use children directly in the template, you will need to wrap it with <>{children}</>, like the backup below
   // @ts-ignore
   const childrenArray = React.Children.toArray(children);
+  // const childrenArray = React.Children.toArray(
+  //   children,
+  // ) as React.ReactElement<FormikStepProps>[];
+
   const [step, setStep] = useState(0);
-  const currentChild = childrenArray[step];
+  const currentChild = childrenArray[
+    step
+  ] as React.ReactElement<FormikStepProps>;
+  console.log('currentChild', currentChild);
 
   const isLastStep = () => {
     return step === childrenArray.length - 1;
