@@ -38,6 +38,65 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 
 export const Home = () => {
+  return (
+    <Card>
+      <CardContent>
+        {/*<Typography variant='h1'>Hello Youtube!!!</Typography>*/}
+        <FormikStepper
+          initialValues={{ ...INITIAL_FORM_STATE }}
+          validationSchema={FORM_VALIDATION}
+          onSubmit={function (
+            // values: FormikValues,
+            // formikHelpers: FormikHelpers<FormikValues>,
+
+            values: Values,
+            formikHelpers: FormikHelpers<Values>,
+          ): void | Promise<any> {
+            throw new Error('Function not implemented.');
+          }}
+        >
+          <div>
+            <Field
+              name='firstName'
+              component={TextField}
+              label='First Name'
+              variant='standard'
+            />
+            <Field
+              name='lastName'
+              component={TextField}
+              label='Last Name'
+              variant='standard'
+            />
+            <Field
+              name='millionaire'
+              type='checkbox'
+              component={CheckboxWithLabel}
+              Label={{ label: 'I am a millionaire' }}
+            />
+          </div>
+          <div>
+            <Field
+              name='money'
+              type='number'
+              component={TextField}
+              label='All the money I have'
+              variant='standard'
+            />
+          </div>
+          <div>
+            <Field
+              name='description'
+              component={TextField}
+              label='Description'
+              variant='standard'
+            />
+          </div>
+        </FormikStepper>
+      </CardContent>
+    </Card>
+  );
+
   /*  return (
     <Card>
       <CardContent>
@@ -99,63 +158,4 @@ export const Home = () => {
       </CardContent>
     </Card>
   );*/
-
-  return (
-    <Card>
-      <CardContent>
-        {/*<Typography variant='h1'>Hello Youtube!!!</Typography>*/}
-        <FormikStepper
-          initialValues={{ ...INITIAL_FORM_STATE }}
-          validationSchema={FORM_VALIDATION}
-          onSubmit={function (
-            // values: FormikValues,
-            // formikHelpers: FormikHelpers<FormikValues>,
-
-            values: Values,
-            formikHelpers: FormikHelpers<Values>,
-          ): void | Promise<any> {
-            throw new Error('Function not implemented.');
-          }}
-        >
-          <div>
-            <Field
-              name='firstName'
-              component={TextField}
-              label='First Name'
-              variant='standard'
-            />
-            <Field
-              name='lastName'
-              component={TextField}
-              label='Last Name'
-              variant='standard'
-            />
-            <Field
-              name='millionaire'
-              type='checkbox'
-              component={CheckboxWithLabel}
-              Label={{ label: 'I am a millionaire' }}
-            />
-          </div>
-          <div>
-            <Field
-              name='money'
-              type='number'
-              component={TextField}
-              label='All the money I have'
-              variant='standard'
-            />
-          </div>
-          <div>
-            <Field
-              name='description'
-              component={TextField}
-              label='Description'
-              variant='standard'
-            />
-          </div>
-        </FormikStepper>
-      </CardContent>
-    </Card>
-  );
 };
