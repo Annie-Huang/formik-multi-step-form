@@ -23,6 +23,7 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
   console.log('currentChild', currentChild);
+  const [completed, setCompleted] = useState(false);
 
   const isLastStep = () => {
     return step === childrenArray.length - 1;
@@ -31,6 +32,10 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
   const onSubmit = async (values: Values, helpers: FormikHelpers<Values>) => {
     if (isLastStep()) {
       await props.onSubmit(values, helpers);
+      // Besides call parent onSubmit, we also setComplete to be true so material ui stepper can show the correct value.
+      setCompleted(true);
+      // helpers.resetForm();
+      // setStep(0);
     } else {
       setStep((s) => s + 1);
     }
@@ -46,8 +51,11 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
       {({ isSubmitting }) => (
         <Form autoComplete='off'>
           <Stepper alternativeLabel activeStep={step}>
-            {childrenArray.map((child) => (
-              <Step key={child.props.label}>
+            {childrenArray.map((child, index) => (
+              <Step
+                key={child.props.label}
+                completed={step > index || completed}
+              >
                 <StepLabel>{child.props.label}</StepLabel>
               </Step>
             ))}
