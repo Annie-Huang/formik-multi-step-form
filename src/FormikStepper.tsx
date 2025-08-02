@@ -43,6 +43,42 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
       validationSchema={currentChild.props.validationSchema}
       onSubmit={onSubmit}
     >
+      {({ isSubmitting }) => (
+        <Form autoComplete='off'>
+          <Stepper alternativeLabel activeStep={step}>
+            {childrenArray.map((child) => (
+              <Step key={child.props.label}>
+                <StepLabel>{child.props.label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+
+          {currentChild}
+
+          {step > 0 && (
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={() => setStep((s) => s - 1)}
+            >
+              Back
+            </Button>
+          )}
+          <Button variant='contained' color='primary' type='submit'>
+            {isLastStep() ? 'Submit' : 'Next'}
+          </Button>
+        </Form>
+      )}
+    </Formik>
+  );
+
+  /*  return (
+    <Formik
+      {...props}
+      // only the 2nd child got the validationSchema value. After this is added, you cannot move to the 3rd step if you choose millionaire and didn't enter > 1m for money
+      validationSchema={currentChild.props.validationSchema}
+      onSubmit={onSubmit}
+    >
       <Form autoComplete='off'>
         <Stepper alternativeLabel activeStep={step}>
           {childrenArray.map((child) => (
@@ -68,7 +104,7 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
         </Button>
       </Form>
     </Formik>
-  );
+  );*/
 };
 
 /*
