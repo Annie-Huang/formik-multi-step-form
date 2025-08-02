@@ -59,6 +59,7 @@ export const Home = () => {
           <FormikStep>
             <Box paddingBottom={2}>
               <Field
+                fullWidth
                 name='firstName'
                 component={TextField}
                 label='First Name'
@@ -67,6 +68,7 @@ export const Home = () => {
             </Box>
             <Box paddingBottom={2}>
               <Field
+                fullWidth
                 name='lastName'
                 component={TextField}
                 label='Last Name'
@@ -75,6 +77,7 @@ export const Home = () => {
             </Box>
             <Box paddingBottom={2}>
               <Field
+                fullWidth
                 name='millionaire'
                 type='checkbox'
                 component={CheckboxWithLabel}
@@ -85,6 +88,7 @@ export const Home = () => {
           <FormikStep validationSchema={FORM_VALIDATION}>
             <Box paddingBottom={2}>
               <Field
+                fullWidth
                 name='money'
                 type='number'
                 component={TextField}
@@ -96,6 +100,7 @@ export const Home = () => {
           <FormikStep>
             <Box paddingBottom={2}>
               <Field
+                fullWidth
                 name='description'
                 component={TextField}
                 label='Description'
