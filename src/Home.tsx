@@ -38,6 +38,8 @@ const FORM_VALIDATION = Yup.object().shape({
   }),
 });
 
+const sleep = (time: number) => new Promise((acc) => setTimeout(acc, time));
+
 export const Home = () => {
   return (
     <Card>
@@ -46,7 +48,7 @@ export const Home = () => {
         <FormikStepper
           initialValues={{ ...INITIAL_FORM_STATE }}
           // validationSchema={FORM_VALIDATION}
-          onSubmit={function (
+          /* onSubmit={function (
             // values: FormikValues,
             // formikHelpers: FormikHelpers<FormikValues>,
 
@@ -54,6 +56,16 @@ export const Home = () => {
             formikHelpers: FormikHelpers<Values>,
           ): void | Promise<any> {
             throw new Error('Function not implemented.');
+          }}*/
+          onSubmit={async (
+            // values: FormikValues,
+            // formikHelpers: FormikHelpers<FormikValues>,
+
+            values: Values,
+            formikHelpers: FormikHelpers<Values>,
+          ) => {
+            await sleep(3000);
+            console.log('values=', values);
           }}
         >
           <FormikStep label='Personal Data'>

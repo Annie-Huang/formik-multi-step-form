@@ -61,6 +61,7 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
               variant='contained'
               color='primary'
               onClick={() => setStep((s) => s - 1)}
+              sx={{ mr: 2 }}
             >
               Back
             </Button>
