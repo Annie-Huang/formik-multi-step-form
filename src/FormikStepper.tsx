@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik';
 import { Values } from './types';
-import { Button, Stepper } from '@mui/material';
+import { Button, Step, StepLabel, Stepper } from '@mui/material';
 import { FormikStepProps } from './FormikStep';
 
 // Note: very confusing the naming, this is called FormikStepper which is the highest wrapper.
@@ -46,16 +46,10 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
       onSubmit={onSubmit}
     >
       <Form autoComplete='off'>
-        <Stepper
-          alternativeLabel
-          activeStep={1}
-          connector={<ColorlibConnector />}
-        >
-          {steps.map((label) => (
+        <Stepper alternativeLabel activeStep={step}>
+          {childrenArray.map((label) => (
             <Step key={label}>
-              <StepLabel StepIconComponent={ColorlibStepIcon}>
-                {label}
-              </StepLabel>
+              <StepLabel>{label}</StepLabel>
             </Step>
           ))}
         </Stepper>
