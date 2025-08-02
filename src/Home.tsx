@@ -77,7 +77,6 @@ export const Home = () => {
             </Box>
             <Box paddingBottom={2}>
               <Field
-                fullWidth
                 name='millionaire'
                 type='checkbox'
                 component={CheckboxWithLabel}
