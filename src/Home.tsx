@@ -56,6 +56,79 @@ export const Home = () => {
             throw new Error('Function not implemented.');
           }}
         >
+          <FormikStep label='Personal Data'>
+            <Box paddingBottom={2}>
+              <Field
+                fullWidth
+                name='firstName'
+                component={TextField}
+                label='First Name'
+                variant='standard'
+              />
+            </Box>
+            <Box paddingBottom={2}>
+              <Field
+                fullWidth
+                name='lastName'
+                component={TextField}
+                label='Last Name'
+                variant='standard'
+              />
+            </Box>
+            <Box paddingBottom={2}>
+              <Field
+                name='millionaire'
+                type='checkbox'
+                component={CheckboxWithLabel}
+                Label={{ label: 'I am a millionaire' }}
+              />
+            </Box>
+          </FormikStep>
+          <FormikStep label='Bank Accounts' validationSchema={FORM_VALIDATION}>
+            <Box paddingBottom={2}>
+              <Field
+                fullWidth
+                name='money'
+                type='number'
+                component={TextField}
+                label='All the money I have'
+                variant='standard'
+              />
+            </Box>
+          </FormikStep>
+          <FormikStep label='More Info'>
+            <Box paddingBottom={2}>
+              <Field
+                fullWidth
+                name='description'
+                component={TextField}
+                label='Description'
+                variant='standard'
+              />
+            </Box>
+          </FormikStep>
+        </FormikStepper>
+      </CardContent>
+    </Card>
+  );
+
+  /*  return (
+    <Card>
+      <CardContent>
+        {/!*<Typography variant='h1'>Hello Youtube!!!</Typography>*!/}
+        <FormikStepper
+          initialValues={{ ...INITIAL_FORM_STATE }}
+          // validationSchema={FORM_VALIDATION}
+          onSubmit={function (
+            // values: FormikValues,
+            // formikHelpers: FormikHelpers<FormikValues>,
+
+            values: Values,
+            formikHelpers: FormikHelpers<Values>,
+          ): void | Promise<any> {
+            throw new Error('Function not implemented.');
+          }}
+        >
           <FormikStep>
             <Box paddingBottom={2}>
               <Field
@@ -110,7 +183,7 @@ export const Home = () => {
         </FormikStepper>
       </CardContent>
     </Card>
-  );
+  );*/
 
   /*  return (
     <Card>

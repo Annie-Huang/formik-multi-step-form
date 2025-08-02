@@ -15,15 +15,13 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
 }) => {
   // https://github.com/jaredpalmer/formik/issues/3683, if use children directly in the template, you will need to wrap it with <>{children}</>, like the backup below
   // @ts-ignore
-  const childrenArray = React.Children.toArray(children);
   // const childrenArray = React.Children.toArray(
   //   children,
   // ) as React.ReactElement<FormikStepProps>[];
+  const childrenArray = children as React.ReactElement<FormikStepProps>[];
 
   const [step, setStep] = useState(0);
-  const currentChild = childrenArray[
-    step
-  ] as React.ReactElement<FormikStepProps>;
+  const currentChild = childrenArray[step];
   console.log('currentChild', currentChild);
 
   const isLastStep = () => {
@@ -47,9 +45,9 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
     >
       <Form autoComplete='off'>
         <Stepper alternativeLabel activeStep={step}>
-          {childrenArray.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+          {childrenArray.map((child) => (
+            <Step key={child.props.label}>
+              <StepLabel>{child.props.label}</StepLabel>
             </Step>
           ))}
         </Stepper>
