@@ -57,6 +57,7 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
 
           {step > 0 && (
             <Button
+              disabled={isSubmitting}
               variant='contained'
               color='primary'
               onClick={() => setStep((s) => s - 1)}
@@ -64,8 +65,14 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
               Back
             </Button>
           )}
-          <Button variant='contained' color='primary' type='submit'>
-            {isLastStep() ? 'Submit' : 'Next'}
+          <Button
+            disabled={isSubmitting}
+            variant='contained'
+            color='primary'
+            type='submit'
+          >
+            {/*{isLastStep() ? 'Submit' : 'Next'}*/}
+            {isSubmitting ? 'Submitting' : isLastStep() ? 'Submit' : 'Next'}
           </Button>
         </Form>
       )}
