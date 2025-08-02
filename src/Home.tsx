@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography } from '@mui/material';
 import { Field, FormikHelpers, FormikValues } from 'formik';
 import { CheckboxWithLabel, TextField } from 'formik-mui';
 import * as Yup from 'yup';
@@ -57,41 +57,51 @@ export const Home = () => {
           }}
         >
           <FormikStep>
-            <Field
-              name='firstName'
-              component={TextField}
-              label='First Name'
-              variant='standard'
-            />
-            <Field
-              name='lastName'
-              component={TextField}
-              label='Last Name'
-              variant='standard'
-            />
-            <Field
-              name='millionaire'
-              type='checkbox'
-              component={CheckboxWithLabel}
-              Label={{ label: 'I am a millionaire' }}
-            />
+            <Box paddingBottom={2}>
+              <Field
+                name='firstName'
+                component={TextField}
+                label='First Name'
+                variant='standard'
+              />
+            </Box>
+            <Box paddingBottom={2}>
+              <Field
+                name='lastName'
+                component={TextField}
+                label='Last Name'
+                variant='standard'
+              />
+            </Box>
+            <Box paddingBottom={2}>
+              <Field
+                name='millionaire'
+                type='checkbox'
+                component={CheckboxWithLabel}
+                Label={{ label: 'I am a millionaire' }}
+              />
+            </Box>
           </FormikStep>
           <FormikStep validationSchema={FORM_VALIDATION}>
-            <Field
-              name='money'
-              type='number'
-              component={TextField}
-              label='All the money I have'
-              variant='standard'
-            />
+            <Box paddingBottom={2}>
+              <Field
+                name='money'
+                type='number'
+                component={TextField}
+                label='All the money I have'
+                variant='standard'
+              />
+            </Box>
           </FormikStep>
           <FormikStep>
-            <Field
-              name='description'
-              component={TextField}
-              label='Description'
-              variant='standard'
-            />
+            <Box paddingBottom={2}>
+              <Field
+                name='description'
+                component={TextField}
+                label='Description'
+                variant='standard'
+              />
+            </Box>
           </FormikStep>
         </FormikStepper>
       </CardContent>
