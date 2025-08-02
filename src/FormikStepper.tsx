@@ -1,7 +1,13 @@
 import React, { FC, useState } from 'react';
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik';
 import { Values } from './types';
-import { Button, Step, StepLabel, Stepper } from '@mui/material';
+import {
+  Button,
+  CircularProgress,
+  Step,
+  StepLabel,
+  Stepper,
+} from '@mui/material';
 import { FormikStepProps } from './FormikStep';
 
 // Note: very confusing the naming, this is called FormikStepper which is the highest wrapper.
@@ -75,6 +81,7 @@ export const FormikStepper: FC<FormikConfig<Values>> = ({
             </Button>
           )}
           <Button
+            startIcon={isSubmitting ? <CircularProgress size='1rem' /> : null}
             disabled={isSubmitting}
             variant='contained'
             color='primary'
